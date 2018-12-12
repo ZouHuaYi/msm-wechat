@@ -1,0 +1,39 @@
+<view class="container">
+	<view class="editor-list">
+		<view class="editor-item">
+			<view class="ei-title">
+				<text class="name">邹小一</text>
+				<text class="phone">15016447087</text>
+			</view>
+			<view class="ei-area">广东省广州市番禺区</view>
+			<view class="ei-cz clearfix">
+			  <view class="ei-select fl">
+				  <icon class="icon" type="success" size="16"></icon>
+				  <text class="txt">默认地址</text>
+			  </view>
+			  <view class="ei-del fr">
+				  <text class="ed">编辑</text><text class="ce">|</text><text class="del">删除</text>
+			  </view>
+			</view>
+		</view>
+		<view class="editor-item">
+			<view class="ei-title">
+				<text class="name">邹小一</text>
+				<text class="phone">15016447087</text>
+			</view>
+			<view class="ei-area">广东省广州市番禺区</view>
+			<view class="ei-cz clearfix">
+			<view class="ei-select fl">
+				<text class="ia"></text>
+				<text class="txt">默认地址</text>
+			</view>
+			<view class="ei-del fr">
+				<text class="ed">编辑</text><text class="ce">|</text><text class="del">删除</text>
+			</view>
+			</view>
+		</view>
+	</view>
+	<view class="form-btn">
+		<button class="in-btn" type="default">添加新地址</button>
+	</view>
+</view>

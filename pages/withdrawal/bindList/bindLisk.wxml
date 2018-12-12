@@ -1,0 +1,16 @@
+<view class="container">
+	<view class="bind-title">
+		到账银行卡
+	</view>
+	<view class="bind-list">
+		<block wx:for="{{bindList}}" wx:key="{{index}}">
+			<view class="bind-item" bindtap="selectBank" data-index="{{index}}" data-id="{{item.id}}">
+				<view class="item-title">{{item.type}}</view>	
+				<view class="item-tip">提现手续费0.1%</view>
+				<icon class="item-ok" type="success" size="15" wx:if="{{index==defaultIndex}}" />
+				<text class="item-del iconfont icon-delete" wx:if="{{index==defaultIndex}}"></text>
+			</view>
+		</block>
+	</view>
+	<view class="select-new">使用新卡提现</view>
+</view>

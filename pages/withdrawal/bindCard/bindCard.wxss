@@ -1,0 +1,38 @@
+.bind-content{
+	width: 700rpx;
+	padding-top: 30rpx;
+	margin: 0 auto;
+}
+.bind-title{
+	font-size: 26rpx;
+	color: #989898;
+	padding-bottom: 20rpx;
+}
+.form-input{
+	display: flex;
+	height: 36rpx;
+	padding: 16rpx 0;
+	position: relative;
+}
+.form-input .fi-left{
+	width: 160rpx;
+	text-align: left;
+	font-size: 32rpx;
+	line-height: 38rpx;
+}
+.form-input .fi-inp{
+	flex: 1;
+	height: 38rpx;
+	min-height: 0rpx;
+	font-size: 32rpx;
+	line-height: 38rpx;
+}
+.form-btn{
+	position: fixed;
+	padding: 0 25rpx;
+	left: 0;
+	bottom: 60rpx;
+}
+.fi-yz{
+	color: #666;
+}

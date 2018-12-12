@@ -1,0 +1,23 @@
+{
+  "pages":[
+    "pages/webview/webview",
+    "pages/promteCode/promteCode",
+    "pages/register/register",
+    "pages/login/login",
+    "pages/buyShop/buyShop",
+    "pages/toPromote/toPromote",
+    "pages/index/index",
+    "pages/withdrawal/index",
+    "pages/withdrawal/bindCard/bindCard",
+		"pages/buyShop/editorArea/editorArea",
+    "pages/buyShop/editorList/editorList",
+    "pages/withdrawal/bindList/bindLisk",
+    "pages/test/test"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#15cebc",
+    "navigationBarTitleText": "正在加载",
+    "navigationBarTextStyle":"#fff"
+  }
+}

@@ -1,0 +1,32 @@
+<view class="container">
+	<form bindsubmit="formSubmit">
+		<view class="bind-content">
+			<view class="bind-title">请输入银行卡信息</view>
+			<view class="form-input">
+				<text class="fi-left">卡类型</text>
+				<input class="fi-inp" data-status="type" name="type" type="text" bindinput="bindAllInput" placeholder="请输入银行卡类型" />
+			</view>
+			<view class="form-input">
+				<text class="fi-left">卡号</text>
+				<input class="fi-inp" data-status="bankcardNo" name="bankcardNo" bindinput="bindAllInput" type="number" placeholder="请输入银行卡号" />
+			</view>
+			<view class="form-input">
+				<text class="fi-left">持卡人</text>
+				<input class="fi-inp" data-status="ower" name="ower" bindinput="bindAllInput" type="text" placeholder="请输入持卡人姓名" />
+			</view>
+			<view class="form-input">
+				<text class="fi-left">手机号</text>
+				<input class="fi-inp" data-status="phone" name="phone" bindinput="bindAllInput" type="number" placeholder="请输入手机号" />
+				<text bindtap="sendCode" class="fi-yz">{{verfiyCode}}</text>
+			</view>
+			<view class="form-input">
+				<text class="fi-left">验证码</text>
+				<input class="fi-inp" data-status="code" name="code" bindinput="bindAllInput" type="number" placeholder="请输入验证码" />
+			</view>
+			
+		</view>
+		<view class="form-btn">
+			<button class="in-btn" type="default" form-type="submit">立即绑定</button>
+		</view>
+	</form>
+</view>

@@ -1,0 +1,23 @@
+<view class="container">
+	<view class="drawal-header">
+		<view class="drawal-top">
+			<view class="d-top-l">到银行卡</view>
+			<view class="d-top-r">
+				<text class="yh">未绑定银行卡</text>
+				<text class="ts">提现到您的银行卡，无需手续费</text>
+			</view>
+		</view>
+	</view>
+	<view class="drawal-center">
+		<text class="dc-title">提现金额</text>
+		<view class="dc-monney">
+			<text class="dc-tit">￥</text>
+			<input class="dc-input" type="number"  />
+		</view>
+		<text class="dc-ye">钱包余额：0.0</text>
+		<view class="form-btn">
+			<button class="in-btn" type="default">提现</button>
+		</view>
+		<view class="text-tip">1-7个工作日到账</view>
+	</view>
+</view>
