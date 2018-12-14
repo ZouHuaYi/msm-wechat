@@ -4,17 +4,15 @@ import {postRequest,getRequest} from './utils/ajax.js';
 App({
 	//优雅的表单验证
 	wxValidate: (rules, messages) => new wxValidate(rules, messages),
-  onLaunch: function () {
+  onLaunch: function (e) {
     // 登录
+		console.log(e)
 		console.log('hello this is first step');
-		// 验证是否登录
-		
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
+		// 登陆路径的白名单
+		const PRIVATE_URL = ["index","login","register"];
+		this.globalData.navigateBackUrl = PRIVATE_URL.indexOf(e.path.split('/')[1]) == -1 ? '/'+e.path : '/pages/toPromote/toPromote';
     // 获取用户信息
+		
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
@@ -23,22 +21,84 @@ App({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
-            }
+              // 如果已经授权直接登陆
+							wx.showLoading({
+								title:"正在加载",
+								mask:true
+							})
+							this.loginFun(res,(data)=>{
+								wx.hideLoading();
+								if(data.messageCode==900){
+										this.globalData.myUserInfo = data.data.user;
+									if (this.userInfoReadyCallback) {
+										 this.userInfoReadyCallback(data.data.user)
+									}
+								}else if(data.messageCode==132){
+									// app没有绑定微信小程序的时候
+									this.globalData.unionId = data.data.unionid;
+									wx.reLaunch({
+										url:'/pages/login/login'
+									})
+								} else {
+									// 没有授权的情况下
+									if(e.path!="pages/index/index"){
+											wx.navigateTo({
+											url:'/pages/index/index'
+										}) 
+									}
+								}
+							})
+            },
+						fail:err=>{
+							if(e.path!="pages/index/index"){
+									wx.navigateTo({
+									url:'/pages/index/index'
+								})
+							}
+						}
           })
-        }
+        }else{
+					// 在没有授权的情况下 主动跳转到 index页
+					if(e.path!="pages/index/index"){
+							wx.navigateTo({
+							url:'/pages/index/index'
+						})
+					}
+				}
       }
     })
   },
   postRequest:postRequest,
 	getRequest:getRequest,
+	// 小程序授权登陆
+	loginFun:function(val,callback){
+		let formData = {};
+		formData['encryptedData'] = val.encryptedData;
+		formData['iv'] = val.iv;
+		wx.login({
+			success:res=> {
+				if(res.code){
+					formData['code'] = res.code;
+					this.postRequest('/rest/user/getAppletUnionId',formData,res=>{
+						callback&&callback(res);
+					})
+				}
+			},
+			fail:function(err){
+				wx.showToast({
+					title: '通讯失败',
+					icon: 'none',
+					duration: 2000
+				})
+			}
+		})
+	},
 	globalData: {
+		root_url:'https://test.topmei3mei.com',
     userInfo: null,
+		unionId:null,
 		token:null,
+		navigateBackUrl:null,
 		myUserInfo:null
   }
 })

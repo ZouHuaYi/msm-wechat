@@ -2,26 +2,46 @@ var app = getApp();
 
 Page({
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
+	  /**
+	   * 页面的初始数据
+	   */
+    data: {
 		animationPhone:{},
 		animationPass:{},
 		phoneType:false,
 		passwType:false,
 		phone:'',
 		passw:''
-  },
+    },
 	// 登录 接口
 	loginHandler:function(){
+		wx.showLoading({
+			title:'正在登陆',
+			mask:true
+		})
 		let {phone,passw} = this.data;
 		app.postRequest('/rest/user/login',{
 			phone:phone,
 			password:passw
 		},data=>{
+			wx.hideLoading();
 			if(data.messageCode==900){
-				app.globalData.myUserInfo = data.data
+				app.globalData.myUserInfo = data.data;
+				if(app.globalData.navigateBackUrl){
+					wx.reLaunch({
+						url:app.globalData.navigateBackUrl
+					})
+				}
+				app.postRequest('/rest/user/open_bind_unbundled',{
+					wechat:app.globalData.unionId,
+					unionId:app.globalData.unionId,
+					id:data.data.id,
+					action:0
+				},resd=>{
+					if(resd.messageCode==900){
+						console.log('静默式绑定成功')
+					}
+				})
 			}else{
 				wx.showToast({
 					title: data.message,
@@ -30,7 +50,6 @@ Page({
 				})
 			}
 		})
-		
 	},
 	// 绑定手机 验证吗 密码
 	bindAllInput:function(e){
@@ -81,63 +100,20 @@ Page({
 			animationPhone:that.animation.export()
 		})
 	},
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-		 this.animation = wx.createAnimation({
-      duration: 200,
-			transformOrigin:'0% 50% 0',
-  	  timingFunction: 'ease',
-    })
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
+	  /**
+	   * 生命周期函数--监听页面加载
+	   */
+	onLoad: function (options) {
+		
+	},
+	  /**
+	   * 生命周期函数--监听页面显示
+	   */
+	onShow: function () {
+			 this.animation = wx.createAnimation({
+		  duration: 200,
+				transformOrigin:'0% 50% 0',
+		  timingFunction: 'ease',
+		})
+	}
 })

@@ -1,0 +1,13 @@
+<view class="container">
+	<view class="list-cont">
+		<view class="cont-item">
+			<view class="ci-left">
+				<image class="img" src="../../../assets/pay/order.png"></image>
+				<text>订单编号</text>
+			</view>
+			<view class="ci-right">
+				000000000000
+			</view>
+		</view>
+	</view>
+</view>
