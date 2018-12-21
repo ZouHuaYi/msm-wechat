@@ -36,19 +36,19 @@
 		</view>
 		<view class="c-bot">
 			<view class="cb-item">
-				<text class="cbi-mon">￥{{newShowData.sum_cashback}}</text>
+				<text class="cbi-mon">￥{{newShowData.sumCashback}}</text>
 				<text class="cbi-tit">退押收入</text>
 			</view>
 			<view class="cb-item">
-				<text class="cbi-mon">￥{{newShowData.sum_free_income}}</text>
+				<text class="cbi-mon">￥{{newShowData.sumFreeIncome}}</text>
 				<text class="cbi-tit">免费收入</text>
 			</view>
 			<view class="cb-item">
-				<text class="cbi-mon">￥{{newShowData.sum_multiple_income}}</text>
+				<text class="cbi-mon">￥{{newShowData.sumMultipleIncome}}</text>
 				<text class="cbi-tit">重销收入</text>
 			</view>
 			<view class="cb-item">
-				<text class="cbi-mon">￥{{newShowData.sum_reward_income}}</text>
+				<text class="cbi-mon">￥{{newShowData.sumRewardIncome}}</text>
 				<text class="cbi-tit">奖励收入</text>
 			</view>
 		</view>

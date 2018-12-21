@@ -1,0 +1,28 @@
+<view class="container">
+    <!-- 首页banner -->
+    <swiper class='banner' indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+        <swiper-item>
+          <image src="http://mei3mei.oss-cn-shenzhen.aliyuncs.com/test/uploadfiles/banner/a390cd228da349ad8c4c31d16dc27cd2.jpg" class="slide-image"/>
+        </swiper-item>
+				<swiper-item>
+					<image src="http://mei3mei.oss-cn-shenzhen.aliyuncs.com/test/uploadfiles/banner/a390cd228da349ad8c4c31d16dc27cd2.jpg" class="slide-image"/>
+				</swiper-item>
+    </swiper>
+    <!-- 场景卡片 -->
+    <view class='scene'>
+      <text class='scene_title'>即可表心意</text>
+      <view class='scene_content'>
+         <view class='sceneCard' data-Fromid="{{item.Fromid}}" id="{{item.Id}}" wx:for="{{giftcards}}" wx:key="key" bindtap="bindViewCoffeeOnMe">
+             <view class='sceneCard_img'>
+               <image src="{{item.Imgurl}}"></image>
+             </view>
+             <text>{{item.Name}}</text>
+         </view>
+      </view>
+    </view>
+    <!-- 购买历史 -->
+     <view class="buyhistory">
+      <image class="buyhistory-icon" src="../../assets/buyhistory.png"></image>
+      <text class="buyhistory-text" bindtap='buyhistory'> 购买历史</text>
+    </view> 
+</view>

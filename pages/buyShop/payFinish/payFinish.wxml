@@ -1,13 +1,54 @@
 <view class="container">
-	<view class="list-cont">
-		<view class="cont-item">
-			<view class="ci-left">
-				<image class="img" src="../../../assets/pay/order.png"></image>
-				<text>订单编号</text>
+	<view class="box-list-ok">
+		<view class="list-cont">
+			<view class="cont-item">
+				<view class="ci-left">
+					<image class="img" mode="widthFix" src="../../../assets/pay/order.png"></image>
+					<text>订单编号</text>
+				</view>
+				<view class="ci-right">000000000</view>
 			</view>
-			<view class="ci-right">
-				000000000000
+			<view class="cont-item">
+				<view class="ci-left">
+					<image class="img" mode="widthFix" src="../../../assets/pay/hospital.png"></image>
+					<text>所属医院</text>
+				</view>
+				<view class="ci-right">艾美美容医疗</view>
+			</view>
+			<view class="cont-item">
+				<view class="ci-left">
+					<image class="img" mode="widthFix" src="../../../assets/pay/name.png"></image>
+					<text>套餐名称</text>
+				</view>
+				<view class="ci-right">艾美“美丽天使”蓝钻套餐</view>
+			</view>
+			<view class="cont-item">
+				<view class="ci-left">
+					<image class="img" mode="widthFix" src="../../../assets/pay/referrer.png"></image>
+					<text>推荐人</text>
+				</view>
+				<view class="ci-right">美上美</view>
 			</view>
 		</view>
+	</view>
+	<view class="box-monney clearfix">
+		<view class="monney-text fl">应付金额</view>
+		<view class="monney-num fr">￥100.00</view>
+	</view>
+	<view class="box-pay-type">
+		<view class="pay-tit">支付方式</view>
+		<view class="pay-wx">
+			<view class="pay-left">
+				<image mode="widthFix" src="../../../assets/pay/wachat.png"></image>
+				<text>微信支付</text>
+			</view>
+		</view>
+	</view>
+	<view class="vip-xy">
+		<text>购买即视同意</text>
+		<text class="vip">《美上美VIP-用户协议》</text>
+	</view>
+	<view class="form-btn">
+		<button class="in-btn" type="default">确认支付</button>
 	</view>
 </view>

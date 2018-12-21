@@ -18,9 +18,14 @@ var postRequest = function(url,data,callback){
 		},
 		dataType:"JSON",
 		success:data=>{
-			callback&&callback(JSON.parse(data.data));
+				try{
+					callback&&callback(JSON.parse(data.data));
+				}catch(e){
+					wx.hideLoading()
+				}
 		},
 		fail:error=>{
+			wx.hideLoading()
 			wx.showToast({
 			  title: '网络开小差啦!!!',
 			  icon: 'none',
@@ -40,9 +45,14 @@ var getRequest = function(url,data,callback){
 		},
 		dataType:"JSON",
 		success:data=>{
-			callback&&callback(data);
+			try{
+				callback&&callback(JSON.parse(data.data));
+			}catch(e){
+				wx.hideLoading()
+			}
 		},
 		fail:error=> {
+			wx.hideLoading()
 			wx.showToast({
 			title: '网络开小差啦!!!',
 			icon: 'none',

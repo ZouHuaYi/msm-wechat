@@ -1,0 +1,69 @@
+<view class='main'>
+  <!-- 头部banner -->
+  <view class='banner'>
+    <image src='{{selCards.Imgurl}}'></image>
+  </view>
+  <!-- 选择礼品 -->
+  <view class='choiceGift'>
+    <view class='choiceGift_title'>
+      <image src='../../images/xuanze_icon.png'></image><text>选择礼品</text>
+    </view>
+    <view class='choiceGift_content'>
+      <view class='choiceGift_btn {{item.gift_id == catalogSelect ? "active":" "}}' id='{{item.gift_id}}' wx:for="{{gift}}" wx:key="key" bindtap='selectionGift'>
+          {{item.gift_name}} 
+      </view>
+     </view>
+  </view>
+  <!-- 选择规格 -->
+  <view class='wares_main'>
+    <view class='wares_title'>
+      <image src='../../images/guige_icon.png'></image><text>选择规格</text>
+    </view>
+    <view class='wares_content'>
+      <view class='wares {{item.buy_num >0 ? "active":" "}}' wares_num="{{wares_num}}"  wx:for="{{List}}" wx:key="key" wx:if="{{item.Ptype == wares_contentId}}" id="{{wares_contentId}}">
+        <view class='wares_num' wx:if="{{item.buy_num>0}}">{{item.buy_num}}</view>
+        <view class='wares_text' data-index="{{item.Id}}" bindtap='show'>
+          <text>{{item.Productname}}{{item.Spec}}</text>
+          <view class='price'>¥{{item.Unitprice}} <view>查看详情</view> </view>
+        </view>
+        <view class='numCount' wx:if="{{item.buy_num==0}}">
+          <text class='onlyAdd' bindtap='addNum' data-index="{{item.sid}}">+</text>
+        </view>
+        <view class='numCount' wx:if="{{item.buy_num >0}}">
+          <text class='minusNum' bindtap='minusNum' data-index="{{item.sid}}">-</text>
+          <text class='addNum' bindtap='addNum' data-index="{{item.sid}}">+</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view style='height:190rpx'></view>
+<!-- 底部按钮区 -->
+<view class='bottom'>
+  <view class='bottom_buytext'>
+      <text>共{{totalNum}}份</text>
+    <view>
+    <view>¥</view>
+    <view>{{totalPrice}}</view>
+    </view>
+  </view>
+  <button open-type="getUserInfo" class='bottom_buybtn' bindtap='buy' disabled="{{buttonClicked}}"  bindgetuserinfo="onGotUserInfo">结算</button> 
+</view>
+<!-- 商品详情 -->
+<view class='wares_box' hidden='{{flag}}'>
+  <view class='wares_details'>
+    <view class='shut' bindtap='shut'><image src='../../images/shut_icon.png'></image></view>
+    <view class='wares_details_img'>
+    <image src='{{wares_details.Imgicon}}'></image></view>
+    <view class='wares_details_title'>
+      <text>{{wares_details.Productname}}{{wares_details.Spec}}瓶</text>
+      <text>¥{{wares_details.Unitprice}}</text>
+    </view>
+    <scroll-view scroll-y="true">
+    <view>
+      <image src='{{wares_details.Imgurl}}'  mode="widthFix" lazy-load="true"></image>
+    </view>
+    </scroll-view>
+  </view>
+</view>
+

@@ -1,0 +1,35 @@
+<view class="container">
+	<view class="header-top">
+		<view class="header-line">
+			<image class="img" mode="cover" src="../../../assets/line.png"></image>
+			<view class="header-cont-txt">
+				<text class="tit">艾美美容医疗</text>
+				<text class="icon iconfont icon-jiantou"></text>
+			</view>
+		</view>
+	</view>
+	<view class="shop-list">
+		<view class="shop-item" wx:for="{{4}}">
+			<view class="s-img">
+				<image mode="widthFix" src="../../../assets/shop.jpg"></image>
+			</view>
+			<view class="s-text">
+				<view class="s-title">艾美美容蓝砖套餐艾美美容蓝砖套餐</view>
+				<view class="s-star">
+					<view class="tip-cl">
+						<image mode="cover" src="../../../assets/class_a.png"></image>
+						<text>A等级</text>
+					</view>
+					<view class="tip-cl">
+					 	<image mode="cover" src="../../../assets/glod.png"></image>
+					 	<text>A等级</text>
+					</view>
+				</view>
+				<view class="s-monney">￥397.00</view>
+			</view>
+		</view>
+	</view>
+	<view class="form-btn">
+		<button class="in-btn" type="default">使用激活卡兑现套餐</button>
+	</view>
+</view>

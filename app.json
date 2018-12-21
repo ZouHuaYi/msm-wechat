@@ -13,7 +13,12 @@
     "pages/buyShop/editorList/editorList",
     "pages/withdrawal/bindList/bindLisk",
     "pages/test/test",
-    "pages/buyShop/payFinish/payFinish"
+    "pages/buyShop/payFinish/payFinish",
+    "pages/activation/activation",
+    "pages/activation/detail/detail",
+    "pages/activation/history/history",
+    "pages/buyShop/shopList/shopList",
+    "pages/buyShop/shopDetail/shopDetail"
   ],
   "window":{
     "backgroundTextStyle":"light",

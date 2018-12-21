@@ -22,20 +22,8 @@
 		</view>
 		<view class="code-bottom">
 			<view class="code-img" wx:if="{{statusNowTime==2}}">
-				<image mode="widthFix" src="../../assets/code.png"></image>
+				<image mode="widthFix" src="{{codeUrl}}"></image>
 			</view>
-			<!-- <view class="code-input" wx:if="{{statusNowTime==10}}">
-				<view class="code-form">
-					<input class="phone" type="number" placeholder="请输入您的手机号" />
-				</view>
-				<view class="code-form">
-					<input class="vcode" type="number" placeholder="请输入验证码" />
-					<text class="vcode-btn">获取验证码</text>
-				</view>
-				<view class="form-btn">
-					<button class="in-btn" type="default">加入我们</button>
-				</view>
-			</view> -->
 			<view class="code-input" wx:if="{{statusNowTime==1}}">
 				<text class="ok">当前登陆账号</text>
 				<text class="ph">150****6732</text>
@@ -50,3 +38,15 @@
 		</view>
 	</view>        
 </view>
+<!-- <view class="code-input" wx:if="{{statusNowTime==10}}">
+	<view class="code-form">
+		<input class="phone" type="number" placeholder="请输入您的手机号" />
+	</view>
+	<view class="code-form">
+		<input class="vcode" type="number" placeholder="请输入验证码" />
+		<text class="vcode-btn">获取验证码</text>
+	</view>
+	<view class="form-btn">
+		<button class="in-btn" type="default">加入我们</button>
+	</view>
+</view> -->
