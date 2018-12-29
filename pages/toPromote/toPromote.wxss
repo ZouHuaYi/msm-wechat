@@ -314,5 +314,5 @@ button.add-news-btn .icon{
 	transform: translateY(-50%);
 }
 .si-item.on{
-	color: #0ABA07;
+	color: #15CEBC;
 }

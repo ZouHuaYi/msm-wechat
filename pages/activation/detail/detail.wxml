@@ -1,69 +1,56 @@
-<view class='main'>
-  <!-- 头部banner -->
-  <view class='banner'>
-    <image src='{{selCards.Imgurl}}'></image>
-  </view>
-  <!-- 选择礼品 -->
-  <view class='choiceGift'>
-    <view class='choiceGift_title'>
-      <image src='../../images/xuanze_icon.png'></image><text>选择礼品</text>
-    </view>
-    <view class='choiceGift_content'>
-      <view class='choiceGift_btn {{item.gift_id == catalogSelect ? "active":" "}}' id='{{item.gift_id}}' wx:for="{{gift}}" wx:key="key" bindtap='selectionGift'>
-          {{item.gift_name}} 
-      </view>
-     </view>
-  </view>
-  <!-- 选择规格 -->
-  <view class='wares_main'>
-    <view class='wares_title'>
-      <image src='../../images/guige_icon.png'></image><text>选择规格</text>
-    </view>
-    <view class='wares_content'>
-      <view class='wares {{item.buy_num >0 ? "active":" "}}' wares_num="{{wares_num}}"  wx:for="{{List}}" wx:key="key" wx:if="{{item.Ptype == wares_contentId}}" id="{{wares_contentId}}">
-        <view class='wares_num' wx:if="{{item.buy_num>0}}">{{item.buy_num}}</view>
-        <view class='wares_text' data-index="{{item.Id}}" bindtap='show'>
-          <text>{{item.Productname}}{{item.Spec}}</text>
-          <view class='price'>¥{{item.Unitprice}} <view>查看详情</view> </view>
-        </view>
-        <view class='numCount' wx:if="{{item.buy_num==0}}">
-          <text class='onlyAdd' bindtap='addNum' data-index="{{item.sid}}">+</text>
-        </view>
-        <view class='numCount' wx:if="{{item.buy_num >0}}">
-          <text class='minusNum' bindtap='minusNum' data-index="{{item.sid}}">-</text>
-          <text class='addNum' bindtap='addNum' data-index="{{item.sid}}">+</text>
-        </view>
-      </view>
-    </view>
-  </view>
+<view class="container {{flag?'on':''}}">
+	<view class='main'>
+		<!-- 头部banner -->
+		<view class='banner'>
+			<image mode="widthFix" src='{{hospitalImg}}'></image>
+		</view>
+		<!-- 选择规格 -->
+		<view class='wares_main'>
+			<view class='wares_title'>
+				<image src='../../../assets/active/guige_icon.png'></image><text>选择套餐</text>
+			</view>
+			<view class="buy-shop-list clearfix">
+				<block wx:for="{{packages}}" wx:key="{{index}}">
+					<view class="shop-item {{item.number>0?'on':''}}" data-index="{{index}}" bindtap="detailClick">
+						<text class="add-num" wx:if="{{item.number}}">{{item.number}}</text>
+						<view class="shop-img">
+							<image mode="aspectFit" src="{{item.thumbnail}}"></image>
+						</view>
+						<view class="shop-txt">{{item.title}}  {{item.price}}元</view>
+						<view class="shop-add-btn">
+							<view class="add-btn jd" data-index="{{index}}" data-price="{{item.price}}" data-reduce="raduce" catchtap="selectCard" wx:if="{{item.number>0}}">-</view>
+							<view class="add-btn" data-index="{{index}}" data-price="{{item.price}}" catchtap="selectCard">+</view>
+						</view>
+					</view>
+				</block>
+			</view>
+		</view>
+	</view>
+	<view style='height:190rpx'></view>
+	<!-- 底部按钮区 -->
+	<view class='bottom'>
+		<view class='bottom_buytext'>
+				<text>共{{totalNum}}份</text>
+			<view>
+			<view>¥</view>
+			<view>{{monney}}</view>
+			</view>
+		</view>
+		<button open-type="getUserInfo" class='bottom_buybtn' data-id="{{oneList.id}}" bindtap='buyShop'  bindgetuserinfo="onGotUserInfo">结算</button> 
+	</view>
+	<!-- 商品详情 -->
+	<view class='wares_box' wx:if='{{flag}}'>
+		<view class='wares_details'>
+			<view class='shut' bindtap='shut'><icon class="" type="cancel" size="30" color="#15CEBC"></icon></view>
+			<view class='wares_details_img'>
+			<image src='{{oneList.thumbnail}}'></image></view>
+			<view class='wares_details_title'></view>
+			<scroll-view scroll-y="true">
+				<view>	
+					<text class="descript" wx:if="{{oneList.descriptionText}}">{{oneList.descriptionText}}</text>
+					<image wx:for="{{oneList.descriptionImgs}}" wx:key="{{index}}" src='{{item}}'  mode="widthFix" lazy-load="true"></image>
+				</view>
+			</scroll-view>
+		</view>
+	</view>
 </view>
-<view style='height:190rpx'></view>
-<!-- 底部按钮区 -->
-<view class='bottom'>
-  <view class='bottom_buytext'>
-      <text>共{{totalNum}}份</text>
-    <view>
-    <view>¥</view>
-    <view>{{totalPrice}}</view>
-    </view>
-  </view>
-  <button open-type="getUserInfo" class='bottom_buybtn' bindtap='buy' disabled="{{buttonClicked}}"  bindgetuserinfo="onGotUserInfo">结算</button> 
-</view>
-<!-- 商品详情 -->
-<view class='wares_box' hidden='{{flag}}'>
-  <view class='wares_details'>
-    <view class='shut' bindtap='shut'><image src='../../images/shut_icon.png'></image></view>
-    <view class='wares_details_img'>
-    <image src='{{wares_details.Imgicon}}'></image></view>
-    <view class='wares_details_title'>
-      <text>{{wares_details.Productname}}{{wares_details.Spec}}瓶</text>
-      <text>¥{{wares_details.Unitprice}}</text>
-    </view>
-    <scroll-view scroll-y="true">
-    <view>
-      <image src='{{wares_details.Imgurl}}'  mode="widthFix" lazy-load="true"></image>
-    </view>
-    </scroll-view>
-  </view>
-</view>
-

@@ -6,7 +6,6 @@ App({
 	wxValidate: (rules, messages) => new wxValidate(rules, messages),
   onLaunch: function (e) {
     // 登录
-		console.log(e)
 		console.log('hello this is first step');
 		// 登陆路径的白名单
 		const PRIVATE_URL = ["index","login","register"];
@@ -26,6 +25,7 @@ App({
 								title:"正在加载",
 								mask:true
 							})
+							
 							this.loginFun(res,(data)=>{
 								wx.hideLoading();
 								if(data.messageCode==900){
@@ -42,7 +42,7 @@ App({
 								} else {
 									// 没有授权的情况下
 									if(e.path!="pages/index/index"){
-											wx.navigateTo({
+											wx.reLaunch({
 											url:'/pages/index/index'
 										}) 
 									}
@@ -51,7 +51,7 @@ App({
             },
 						fail:err=>{
 							if(e.path!="pages/index/index"){
-									wx.navigateTo({
+									wx.reLaunch({
 									url:'/pages/index/index'
 								})
 							}
@@ -95,10 +95,14 @@ App({
 	},
 	globalData: {
 		root_url:'https://test.topmei3mei.com',
-    userInfo: null,
+		userInfo: null,
 		unionId:null,
 		token:null,
 		navigateBackUrl:null,
-		myUserInfo:null
-  }
+		myUserInfo:null,
+		shopList:null,
+		areaSelect:null,
+		orderPlace:null,
+		recommended:null
+    }
 })

@@ -39,6 +39,14 @@ Page({
 			animationData:{},
 			opacityData:{}
 	},
+	// 跳转到购买页
+	goToPay:function(e){
+		let hospitalId = e.currentTarget.dataset.hospitalid;
+		console.log(e)
+		wx.navigateTo({
+			url:"/pages/buyShop/shopList/shopList?hospitalid="+hospitalId
+		})
+	},
 	// 调转到我的推广页
 	gotoScanMak:function(e){
 		let {pid,hospitalid,title} = e.currentTarget.dataset;
@@ -94,6 +102,7 @@ Page({
 	},
 	// 渲染现在的数据
 	renderFun:function(data){
+		app.globalData.recommended = data.pUserNickname;
 		this.setData({
 			newShowData:data
 		})

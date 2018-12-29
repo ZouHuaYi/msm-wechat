@@ -1,0 +1,17 @@
+<view class="container">
+	<view class='banner'><image src='../../../assets/shop.jpg'></image></view>
+	<view class='sp_main'>
+	<view class='sp_name'>大闸蟹一张</view>
+	</view>
+	<view class='sp_price'>¥ 200</view>
+	<view class='zf_content'>
+	  <image class='headImg' src='../../../assets/default.png'></image>
+	  <view class='zf_text'>
+		<view class='text'>你的名字我的菜</view>
+		<view class='text'>好盆友一起走</view>
+	  </view>
+	  <image class='giveImg' bindtap='seeImg' src='../../../assets/shop.jpg'></image>
+	</view>
+	<button  wx:if='{{givemsg.Order.status!==1}}' open-type="getUserInfo" class='complete' bindtap='use'>立即使用</button>
+	<button  wx:else  class='complete' bindtap='ok'>完成</button>
+</view>

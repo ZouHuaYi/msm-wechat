@@ -18,7 +18,10 @@
     "pages/activation/detail/detail",
     "pages/activation/history/history",
     "pages/buyShop/shopList/shopList",
-    "pages/buyShop/shopDetail/shopDetail"
+    "pages/buyShop/shopDetail/shopDetail",
+    "pages/buyShop/shopPay/shopPay",
+    "pages/activation/shareCard/shareCard",
+    "pages/activation/shareFinish/shareFinish"
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -36,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 18,
+			"current": 21,
 			"list": [
 				{
 					"id": -1,
@@ -149,7 +149,26 @@
 				{
 					"id": -1,
 					"name": "购买产品详情页",
-					"pathName": "pages/buyShop/shopDetail/shopDetail"
+					"pathName": "pages/buyShop/shopDetail/shopDetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "购买确认页",
+					"pathName": "pages/buyShop/shopPay/shopPay",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "激活卡分享页",
+					"pathName": "pages/activation/shareCard/shareCard",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "激活卡认领完成",
+					"pathName": "pages/activation/shareFinish/shareFinish",
+					"query": ""
 				}
 			]
 		}

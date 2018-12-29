@@ -4,6 +4,7 @@ page{
 .editor-list{
 	width: 100%;
 	padding-top: 30rpx;
+	padding-bottom:160rpx;
 }
 .editor-item{
 	width: 100%;

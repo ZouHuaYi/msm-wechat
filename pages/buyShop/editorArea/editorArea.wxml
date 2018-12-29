@@ -4,11 +4,11 @@
 		<view class="editor-box">
 			<view class="form-groud">
 				<text class="label">收货人</text>
-				<input class="inp" type="text" placeholder="请输入收件人姓名" />
+				<input class="inp" type="text" bindinput="inputInfo" data-key="receiveName" value="{{receiveName}}" placeholder="请输入收件人姓名" />
 			</view>
 			<view class="form-groud">
 				<text class="label">联系电话</text>
-				<input class="inp" type="text" placeholder="请输入联系电话" />
+				<input class="inp" type="text" bindinput="inputInfo" data-key="receivePhone" value="{{receivePhone}}" placeholder="请输入联系电话" />
 			</view>
 			<view class="form-groud">
 				<text class="label">所在地址</text>
@@ -16,7 +16,7 @@
 			</view>
 			<view class="form-groud">
 				<text class="label">详细地址</text>
-				<input class="inp" type="text" placeholder="请输入详细地址" />
+				<input class="inp" type="text" bindinput="inputInfo" data-key="address" value="{{address}}" placeholder="请输入详细地址" />
 			</view>
 		</view>
 		<view class="form-btn">

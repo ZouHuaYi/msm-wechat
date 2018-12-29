@@ -1,6 +1,6 @@
 <view class="container">
 	<view class="header-top">
-		<view class="header-line">
+		<view class="header-line" wx:if="{{false}}">
 			<image class="img" mode="cover" src="../../../assets/line.png"></image>
 			<view class="header-cont-txt">
 				<text class="tit">艾美美容医疗</text>
@@ -9,25 +9,28 @@
 		</view>
 	</view>
 	<view class="shop-list">
-		<view class="shop-item" wx:for="{{4}}">
-			<view class="s-img">
-				<image mode="widthFix" src="../../../assets/shop.jpg"></image>
-			</view>
-			<view class="s-text">
-				<view class="s-title">艾美美容蓝砖套餐艾美美容蓝砖套餐</view>
-				<view class="s-star">
-					<view class="tip-cl">
-						<image mode="cover" src="../../../assets/class_a.png"></image>
-						<text>A等级</text>
-					</view>
-					<view class="tip-cl">
-					 	<image mode="cover" src="../../../assets/glod.png"></image>
-					 	<text>A等级</text>
-					</view>
+		<block wx:for="{{shopList}}" wx:key="{{index}}">
+			<view class="shop-item" bindtap="gotoDetail" data-id="{{item.id}}" data-index="{{index}}">
+				<view class="s-img">
+					<image mode="aspectFit" src="{{item.thumbnail}}"></image>
 				</view>
-				<view class="s-monney">￥397.00</view>
+				<view class="s-text">
+					<view class="s-title">{{item.title}}</view>
+					<view class="s-star">
+						<view class="tip-cl">
+							<image mode="cover" src="../../../assets/class_a.png"></image>
+							<text>{{grade[item.grade]}}等级</text>
+						</view>
+						<view class="tip-cl" wx:if="{{item.freeAllowanceAllocation}}">
+							<image mode="cover" src="../../../assets/glod.png"></image>
+							<text>赠美丽金</text>
+						</view>
+					</view>
+					<view class="s-monney">￥{{item.price}}</view>
+				</view>
 			</view>
-		</view>
+		</block>
+		
 	</view>
 	<view class="form-btn">
 		<button class="in-btn" type="default">使用激活卡兑现套餐</button>
